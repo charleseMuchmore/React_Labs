@@ -1,4 +1,3 @@
-import './App.css';
 import { Component } from 'react';
 import './App.css';
 
@@ -117,7 +116,7 @@ class App extends Component {
   }
 
   checkCards() {
-    let result = [...this.state];
+    let result = {...this.state};
     result.tries++;
     if (this.isMatch()) {
         result.matches ++;
