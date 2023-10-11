@@ -64,7 +64,6 @@ function App() {
   }
 
   let status;
-  console.log(winner);
   if (winner.winner) {
     status = 'Winner: ' + winner.winner;
   } else {
