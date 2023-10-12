@@ -65,7 +65,7 @@ function App() {
   {
     const index = parseInt(event.target.id);
 
-    let localPicks = {...picks}; //may not be the proper spread operator?
+    let localPicks = {...picks}; 
 
     if (localPicks.first == -1) {
       console.log("it was -1");
@@ -76,7 +76,7 @@ function App() {
       console.log("it was else");
       localPicks.second = index;
       setPicks(localPicks);
-      let localImages = [...images]; //
+      let localImages = [...images]; 
       setTimeout(checkCards, 2000, localPicks.first, localPicks.second, localImages, tries, matches);
     }
   }
@@ -90,7 +90,7 @@ function App() {
         (i != picks.first && i != picks.second) &&
         (picks.first == -1 || picks.second == -1) &&
         (matches < 10)) ? true : false;
-    const eventHandler = (enabled)? handleClick: () => {};
+    const eventHandler = (enabled) ? handleClick : () => {};
     const cursor = (enabled) ? "pointer" : "none";
     const style = {
       backgroundImage: image,
@@ -106,10 +106,6 @@ function App() {
       />
     );
   }
-
-
-
-
 
   let status = (matches < 10) ?
     'Matches: ' + matches + " Tries: " + tries :
