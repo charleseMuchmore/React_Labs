@@ -17,15 +17,27 @@ const svgMap = {
     horse
 }
 
+const ONCLICK_ADJUST = 20;
+
 function AnimalShow({ type }) {
     const [clicks, setClicks] = useState(0);
+    const [animalStyle, setAnimalStyle] = useState({});
 
     const handleClick = () => {
         setClicks(clicks + 1);
     }
+
+    const handleMouseDown = () => {
+        setAnimalStyle({...animalStyle, height: 200 - ONCLICK_ADJUST + 'px', width: 200 - ONCLICK_ADJUST + 'px'});
+    }
+
+    const handleMouseUp = () => {
+        setAnimalStyle({...animalStyle, height: 200 + ONCLICK_ADJUST + 'px', width: 200 + ONCLICK_ADJUST + 'px'});
+    }
+
     return(
-    <div className="animal-show" onClick={handleClick}>
-        <img className="animal" alt="animal" src={svgMap[type]} />
+    <div className="animal-show" onClick={handleClick} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} style={animalStyle}>
+        <img className="animal" alt="animal" src={svgMap[type]} style={animalStyle}/>
         <img 
         className="heart"
         alt="heart" 
