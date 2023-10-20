@@ -8,5 +8,29 @@
       name="description"
       content="Web site created using create-react-app"
     />
+  <body>
+    <div id="app-container">
+      <div class="app">
+
+          <div class="zip-form">
+              <form id="zipForm">
+                  <div class="flex-parent">
+                    <label for="zipcode">Zip</label>
+                    <input class="form-control"
+                        type="input" id="zipcode" name="zipcode" 
+                        value="" required
+                    />
+                    <button type="submit" class="btn btn-success"> Get the forcast!</button>
+                </div>
+              </form>
+          </div>
+
+          <div id="weatherList">
+          </div>
+          <div id="currentDay">
+          </div>
+
+      </div>
+  </div>
   </body>
 </html>
