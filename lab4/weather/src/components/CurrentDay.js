@@ -1,6 +1,7 @@
+import {getWeekday} from '../utilities/dates';
 
 function CurrentDay({ city, forecastDay }) {
-    if (city == undefined)
+    if (city === undefined)
     {
         console.log("UNDEF in CurrentDay");
     }
@@ -8,7 +9,7 @@ function CurrentDay({ city, forecastDay }) {
     {
         return (
             <div className="current-day">
-                <h1 className="day-header">{forecastDay.dt.getDay()} in {city.name}</h1>
+                <h1 className="day-header">{getWeekday(forecastDay.dt)} in {city}</h1>
         
                 {/* <div className="weather">
                 <p>

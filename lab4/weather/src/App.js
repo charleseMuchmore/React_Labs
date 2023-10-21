@@ -15,7 +15,6 @@ function App() {
             const forecast = await getWeather(city.lat, city.lng);
             setCity(city);
             setForecast(forecast);
-            console.log(forecast);
             setSelectedDay(null);
         }
         catch (error) {
@@ -40,16 +39,27 @@ function App() {
         setSelectedDay(forecast[index]);
     }
 
-    if (forecast.length != 0)
+    if (forecast.length !== 0)
     {
-        if (city == undefined) {console.log("UNDEF in App")}
-        return (
-            <div>
-                <ZipForm onSubmit={handleSubmit} />
-                <CurrentDay city={city} forecastDay={forecast[0]}/>
-                <WeatherList onDayClick={handleDayClick} forecast={forecast} />
-            </div>
-            )
+        if (selectedDay !== null)
+        {
+            return (
+                <div>
+                    <ZipForm onSubmit={handleSubmit} />
+                    <WeatherList onDayClick={handleDayClick} forecast={forecast} />
+                    <CurrentDay city={city.name} forecastDay={forecast[0]}/>
+                </div>
+                )
+        }
+        else
+        {
+            return (
+                <div>
+                    <ZipForm onSubmit={handleSubmit} />
+                    <WeatherList onDayClick={handleDayClick} forecast={forecast} />
+                </div>
+                )
+        }
     }
     else
     {

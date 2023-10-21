@@ -1,9 +1,16 @@
 import WeatherListItem from "./WeatherListItem";
+import './WeatherList.css';
 
 function WeatherList({ forecast, onDayClick }) {
-    forecast.map((forecastDay, index) => {
+    let theWeather = forecast.map((forecastDay, index) => {
        return <WeatherListItem key={forecastDay.dt} forecastDay={forecastDay} index={index} onDayClick={onDayClick} />
     })
+    return (
+        <div className="weather-list">
+            {theWeather}
+        </div>
+    )
+
 }
 
 export default WeatherList;
