@@ -47,7 +47,7 @@ function App() {
                 <div>
                     <ZipForm onSubmit={handleSubmit} />
                     <WeatherList onDayClick={handleDayClick} forecast={forecast} />
-                    <CurrentDay city={city.name} forecastDay={forecast[0]}/>
+                    <CurrentDay city={city.name} forecastDay={selectedDay}/>
                 </div>
                 )
         }
