@@ -1,0 +1,10 @@
+.weather-list-item {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    padding: 5px;
+}
+
+h2, h3 {
+    display: block;
+}
