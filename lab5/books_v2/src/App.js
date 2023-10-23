@@ -7,7 +7,7 @@ function App() {
     const [books, setBooks] = useState([]);
 
     const fetchBooks = async () => {
-        const response = await axios.get('http://localhost:3001/books');
+        const response = await axios.get('http://localhost:3002/books');
 
         setBooks(response.data);
     };
@@ -17,7 +17,7 @@ function App() {
     }, []);
 
     const editBookById = async (id, newTitle) => {
-        const response = await axios.put(`http://localhost:3001/books/${id}`, {
+        const response = await axios.put(`http://localhost:3002/books/${id}`, {
             title: newTitle
         });
 
@@ -33,7 +33,7 @@ function App() {
     };
 
     const deleteBookById = async (id) => {
-        await axios.delete(`http://localhost:3001/books/${id}`);
+        await axios.delete(`http://localhost:3002/books/${id}`);
 
         const updatedBooks = books.filter((book) => {
             return book.id !== id;
@@ -43,7 +43,7 @@ function App() {
     };
 
     const createBook = async (title) => {
-        const response = await axios.post('http://localhost:3001/books', {
+        const response = await axios.post('http://localhost:3002/books', {
             title
         });
         
