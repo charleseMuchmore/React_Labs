@@ -6,7 +6,7 @@ import { Provider } from './posts';
 import UserContext from './user';
 import { Provider as UserProvider } from './user';
 
-/* categories
+//categories
 const TestCategoriesComponent = () => {
     const { categories, fetchCategories } = useContext(PostsContext);
     fetchCategories();
@@ -28,7 +28,7 @@ test('fetch Categories', async () => {
         expect(screen.getByRole('exists')).toBeInTheDocument();
     })
 })
-*/
+
 /* featured posts
 const TestFeaturedPostsComponent = () => {
     const { featuredPosts, fetchFeaturedPosts } = useContext(PostsContext);
