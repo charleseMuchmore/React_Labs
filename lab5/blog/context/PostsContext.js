@@ -48,7 +48,7 @@ function Provider({ children }) {
         //updating posts state variable
         //NOTE: the parameter for this method may need to be updated to come
         //from somewhere else, not sure yet
-        fetchPosts(postAuthor.userid);
+        fetchPosts(postAuthor.id);
     };
 
     const createPost = async (postProps, author) => {
