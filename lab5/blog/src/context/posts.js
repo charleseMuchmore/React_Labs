@@ -29,15 +29,29 @@ function Provider({ children }) {
         setPosts(response.data);
     };
 
-    const deletePostById = async (postId) => {
-        const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts?id=${postId}`);
+    // const deletePostById = async (postId) => {
+    //     // const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts?id=${postId}`);
+    //     await axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts?id=${postId}`);
 
-        console.log("Delete request response: " + response.data);
+    //     // console.log("Delete request response: " + response.data);
 
-        //updating posts state variable
-        //NOTE: the parameter for this method may need to be updated to come
-        //from somewhere else, not sure yet
-        fetchPosts(userId);
+    //     //updating posts state variable
+    //     //NOTE: the parameter for this method may need to be updated to come
+    //     //from somewhere else, not sure yet
+    //     // console.log("UID: " + userId);
+    //     // fetchPosts(userId);
+    // };
+
+    const deletePostById = async (id) => {
+        let response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?id=${id}`);
+        console.log(response);
+        axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts?id=${id}`);
+      
+        
+
+        fetchPosts();
+
+        console.log(posts);
     };
 
     const editPostById = async (postProps, postAuthor) => {

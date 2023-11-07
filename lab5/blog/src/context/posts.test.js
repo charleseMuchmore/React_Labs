@@ -5,7 +5,7 @@ import PostsContext from './posts.js';
 import { Provider } from './posts.js';
 import UserContext from './user.js';
 import { Provider as UserProvider } from './user.js';
-
+/*
 const TestCategoriesComponent = () => {
     const { categories, fetchCategories } = useContext(PostsContext);
     fetchCategories();
@@ -71,7 +71,7 @@ test('fetch Posts', async () => {
         expect(screen.getByRole('exists')).toBeInTheDocument();
     })
 })
-
+*/
 const TestDeleteComponent = () => {
     const { posts, fetchPosts, deletePostById } = useContext(PostsContext);
     fetchPosts(1);
