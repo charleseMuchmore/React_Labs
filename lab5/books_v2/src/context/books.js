@@ -7,13 +7,21 @@ function Provider({ children }) {
     const [books, setBooks] = useState([]);
 
     const fetchBooks = useCallback(async () => {
-        const response = await axios.get('http://localhost:3002/books');
-
+        // const response = await axios.get('http://localhost:3002/books');
+        // response = await axios.get(`${process.env.PROD_DATA_URL}`);
+        const response = await axios.get(`http://citweb.lanecc.net:5031/books`);
         setBooks(response.data);
     }, [])
 
+
     const editBookById = async (id, newTitle) => {
-        const response = await axios.put(`http://localhost:3002/books/${id}`, {
+        // const response = await axios.put(`http://localhost:3002/books/${id}`, {
+        //     title: newTitle
+        // });
+        // const response = await axios.put(`${process.env.PROD_DATA_URL}/${id}`, {
+        //     title: newTitle
+        // });
+        const response = await axios.put(`http://citweb.lanecc.net:5031/books/${id}`, {
             title: newTitle
         });
 
@@ -29,7 +37,10 @@ function Provider({ children }) {
     };
 
     const deleteBookById = async (id) => {
-        await axios.delete(`http://localhost:3002/books/${id}`);
+        // await axios.delete(`http://localhost:3002/books/${id}`);
+        // await axios.delete(`${process.env.PROD_DATA_URL}/${id}`);
+        await axios.delete(`http://citweb.lanecc.net:5031/books/${id}`);
+
 
         const updatedBooks = books.filter((book) => {
             return book.id !== id;
@@ -39,7 +50,13 @@ function Provider({ children }) {
     };
 
     const createBook = async (title) => {
-        const response = await axios.post('http://localhost:3002/books', {
+        // const response = await axios.post('http://localhost:3002/books', {
+        //     title
+        // });
+        // const response = await axios.post(`${process.env.PROD_DATA_URL}`, {
+        //     title
+        // });
+        const response = await axios.post(`http://citweb.lanecc.net:5031/books`, {
             title
         });
         
