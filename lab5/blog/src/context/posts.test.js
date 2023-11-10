@@ -71,7 +71,7 @@ test('fetch Posts', async () => {
         expect(screen.getByRole('exists')).toBeInTheDocument();
     })
 })
-*/
+
 const TestDeleteComponent = () => {
     const { posts, fetchPosts, deletePostById } = useContext(PostsContext);
     fetchPosts(1);
@@ -109,7 +109,6 @@ test('delete Post', async () => {
     });
 })
 
-/* create
 const TestCreatePostComponent = () => {
     const { posts, fetchPosts, createPost } = useContext(PostsContext);
     const { user, fetchUser } = useContext(UserContext);
@@ -159,8 +158,7 @@ test('Create Post', async () => {
         expect(after).toBeInTheDocument();
     });
 })
-*/
-/* create post with complex data
+
 const TestCreateWithComplexDataPostComponent = () => {
     const { posts, fetchPosts, createPost } = useContext(PostsContext);
     const { user, fetchUser } = useContext(UserContext);
@@ -211,8 +209,7 @@ test('Create Post', async () => {
         expect(after).toBeInTheDocument();
     });
 })
-*/
-/* edit
+
 const TestEditPostComponent = () => {
     const { posts, fetchPosts, editPostById } = useContext(PostsContext);
     fetchPosts(1);

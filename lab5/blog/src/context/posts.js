@@ -8,7 +8,7 @@ function Provider({ children }) {
     const [categories, setCategories] = useState([]);
     const [posts, setPosts] = useState([]);
 
-    //featuredPosts function
+    //featuredPosts function http://localhost:5000/posts?expand=user&sort=datetime&order=desc&start=0&end=12
     const fetchFeaturedPosts = async () => {
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?expand=user&sort=datetime&order=desc&start=0&end=12`);
 
@@ -42,37 +42,77 @@ function Provider({ children }) {
     //     // fetchPosts(userId);
     // };
 
-    const deletePostById = async (id) => {
-        let response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?id=${id}`);
-        console.log(response);
-        axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts?id=${id}`);
-      
+    // const deletePostById = async (id) => {
+    //     let response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?id=${id}`);
+    //     console.log(response);
+    //     axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts?id=${id}`);
+
+    //     fetchPosts();
+
+    //     console.log(posts);
+    // };
+
+    const deletePostById = async (id) => { 
+        await axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`); 
+        const updatedPosts = posts.filter((post) => { 
+            return post.id !== id; }); 
+            setPosts(updatedPosts); 
+        };
+
+
+
+
+
+    // const editPostById = async (postId, props) => {
+    //     console.log("props: ");
+    //     console.log(props);
+    //     console.log(`${process.env.REACT_APP_SERVER_URL}/posts?id=${postId}`);
+    //     const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts?id=${postId}`, props);
         
+    //     const updatedPosts = [
+    //         ...posts,
+    //         response.data
+    //     ];
+    //     setPosts(updatedPosts);
+    //     };
 
-        fetchPosts();
+    const editPostById = async (id, props) => {
+        const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${id}`, {
+            title: props.title,
+            userId: props.id, 
+            datetime: props.datetime, 
+            category: props.category, 
+            content: props.content
+        });
 
-        console.log(posts);
+        // const updatedPosts = posts.map((post) => {
+        //     if (post.id === id) {
+        //         return {...post, ...response.data };
+        //     }
+
+        //     return post;
+        // });
+
+        // setPosts(updatedPosts);
+        const updatedPosts = [
+            ...posts,
+            response.data
+        ];
+        setPosts(updatedPosts);
     };
 
-    const editPostById = async (postProps, postAuthor) => {
-        const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts?id=${postId}&title=${postProps.title}&userId=${postProps.userId}&datetime=${postProps.datetime}&category=${postProps.category}&content=${postProps.content}&image=${postProps.image}`);
 
-        console.log("Put request response: " + response.data);
 
-        //updating posts state variable
-        //NOTE: the parameter for this method may need to be updated to come
-        //from somewhere else, not sure yet
-        fetchPosts(postAuthor.id);
-    };
 
-    const createPost = async (postProps, author) => {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts?title=${postProps.title}&userId=${author.userid}&datetime=${postProps.datetime}&category=${postProps.category}&content=${postProps.content}&image=${postProps.image}`);
 
-        console.log("Post request response: " + response.data);
-        //updating posts state variable
-        //NOTE: the parameter for this method may need to be updated to come
-        //from somewhere else, not sure yet
-        fetchPosts(author.userid);
+    const createPost= async (postProps) => {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/posts?`, postProps);
+        
+        const updatedPosts = [
+            ...posts,
+            response.data
+        ];
+        setPosts(updatedPosts);
     };
 
     const valueToShare = {
