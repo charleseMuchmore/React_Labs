@@ -1,9 +1,9 @@
-import { createContext, useState, useCallback } from 'react';
+import { createContext, useState } from 'react';
 import axios from 'axios';
 
 const PostsContext = createContext();
 
-function Provider({ children }) {
+function PProvider({ children }) {
     const [featuredPosts, setFeaturedPosts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [posts, setPosts] = useState([]);
@@ -80,5 +80,5 @@ function Provider({ children }) {
     </PostsContext.Provider>
 }
 
-export { Provider };
+export { PProvider };
 export default PostsContext;
