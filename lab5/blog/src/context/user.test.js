@@ -1,8 +1,8 @@
 import { render, waitFor, screen } from '@testing-library/react';
 import user from "@testing-library/user-event";
 import { useContext } from 'react';
-import UserContext from './user.js';
-import { Provider, LoginStatus } from './user.js';
+import UserContext from './user';
+import { Provider, LoginStatus } from './user';
 
 
 const TestUserComponent = ({userId, password}) => {
@@ -49,7 +49,7 @@ test('fetch user invalid login', async () => {
     })
 })
 
-/* logout
+
 const TestResetUserComponent = ({userId, password}) => {
     const { user, fetchUser, resetUser } = useContext(UserContext);
     fetchUser(userId, password);
@@ -84,13 +84,12 @@ test('logout user', async () => {
         expect(after).toBeInTheDocument();
     });
 })
-*/
-/* create user
+
 const TestCreateUserComponent = () => {
     const { user, createUser } = useContext(UserContext);
     return (
         <div>
-            {!user && 
+            {user && 
             <div role="before">There is no user logged in.</div>}
             <button
                 onClick={() => {
@@ -126,8 +125,7 @@ test('Create User', async () => {
         expect(after).toBeInTheDocument();
     });
 })
-*/
-/* edit user
+
 const TestEditUserComponent = () => {
     const { user, fetchUser, editUserById } = useContext(UserContext);
     fetchUser("duckdaffy", "password");
@@ -169,4 +167,4 @@ test('edit User', async () => {
         expect(after).toBeInTheDocument();
     });
 })
-*/
+

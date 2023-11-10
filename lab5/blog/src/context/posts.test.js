@@ -1,11 +1,12 @@
 import { render, waitFor, screen } from '@testing-library/react';
 import user from "@testing-library/user-event";
 import { useContext } from 'react';
-import PostsContext from './posts.js';
-import { Provider } from './posts.js';
-import UserContext from './user.js';
-import { Provider as UserProvider } from './user.js';
-/*
+import PostsContext from './posts';
+import { Provider } from './posts';
+import UserContext from './user';
+import { Provider as UserProvider } from './user';
+
+
 const TestCategoriesComponent = () => {
     const { categories, fetchCategories } = useContext(PostsContext);
     fetchCategories();
@@ -254,4 +255,4 @@ test('edit Post', async () => {
         expect(after).toBeInTheDocument();
     });
 })
-*/
+
