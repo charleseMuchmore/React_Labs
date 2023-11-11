@@ -1,5 +1,5 @@
 function Header() {
-    return <div>Header</div>
+    return <img src="../images/booksimage.jpg"></img>
 }
 
 export default Header;
