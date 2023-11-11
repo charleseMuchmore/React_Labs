@@ -11,10 +11,10 @@ function Home() {
         <Header />
         <div>
         {user && 
-            <heading>There is no user logged in... so Featured Posts</heading>
+            <div>There is no user logged in... so Featured Posts</div>
         }
         {user && user.id &&
-        <heading>A user is logged in.. so My Posts</heading>
+        <div>A user is in fact logged in.. so My Posts</div>
         }
         </div>
         <PostsList />
