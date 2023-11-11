@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const UserContext = createContext();
 
-function UProvider({ children }) {
-    const [user, setUser] = useState({});
+function Provider({ children }) {
+    const [user, setUser] = useState(null);
 
     //user functions.
     const fetchUser = async (uid, pwd) => {
@@ -55,5 +55,5 @@ function UProvider({ children }) {
     </UserContext.Provider>
 }
 
-export { UProvider };
+export { Provider };
 export default UserContext;

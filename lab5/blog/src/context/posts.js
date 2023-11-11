@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const PostsContext = createContext();
 
-function PProvider({ children }) {
+function Provider({ children }) {
     const [featuredPosts, setFeaturedPosts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [posts, setPosts] = useState([]);
@@ -80,5 +80,5 @@ function PProvider({ children }) {
     </PostsContext.Provider>
 }
 
-export { PProvider };
+export { Provider };
 export default PostsContext;

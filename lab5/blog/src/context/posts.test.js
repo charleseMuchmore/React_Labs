@@ -29,6 +29,7 @@ test('fetch Categories', async () => {
     })
 })
 
+
 const TestFeaturedPostsComponent = () => {
     const { featuredPosts, fetchFeaturedPosts } = useContext(PostsContext);
     fetchFeaturedPosts();

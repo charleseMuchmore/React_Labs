@@ -49,7 +49,6 @@ test('fetch user invalid login', async () => {
     })
 })
 
-
 const TestResetUserComponent = ({userId, password}) => {
     const { user, fetchUser, resetUser } = useContext(UserContext);
     fetchUser(userId, password);
@@ -89,7 +88,7 @@ const TestCreateUserComponent = () => {
     const { user, createUser } = useContext(UserContext);
     return (
         <div>
-            {user && 
+            {!user && 
             <div role="before">There is no user logged in.</div>}
             <button
                 onClick={() => {
@@ -131,7 +130,7 @@ const TestEditUserComponent = () => {
     fetchUser("duckdaffy", "password");
     return (
         <div>
-            {user && user.userid === "duckdaffy" && 
+            {!user && user.userid === "duckdaffy" && 
             <div role="before">Daffy duck is logged in successfully.</div>}
             <button
                 onClick={() => {

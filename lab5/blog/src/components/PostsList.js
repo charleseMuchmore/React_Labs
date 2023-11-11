@@ -5,6 +5,7 @@ import PostsContext from '../context/posts';
 function PostsList() {
     const { user } = useContext(UserContext);
     const { posts, featuredPosts } = useContext(PostsContext);
+    
     let postsToRender = 0;
     if (user) {
         postsToRender = featuredPosts;
