@@ -8,16 +8,11 @@ function NavBar() {
     const [showLogin, setShowLogin] = useState(false);
 
     const handleClick = () => {
-        console.log("click");
-        console.log(showLogin);
         if (showLogin === false && user) {
-            console.log("1");
             setShowLogin(true);
         } else if (showLogin === true) {
-            console.log("2");
             setShowLogin(false);
         } else {
-            console.log("3");
             resetUser();
         }
     };
