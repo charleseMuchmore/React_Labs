@@ -10,10 +10,10 @@ function Home() {
     <div className="home">
         <Header />
         <div>
-        {user && 
+        {!user && 
             <div>There is no user logged in... so Featured Posts</div>
         }
-        {user && user.id &&
+        {user && 
         <div>A user is in fact logged in.. so My Posts</div>
         }
         </div>

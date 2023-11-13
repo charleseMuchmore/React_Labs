@@ -3,17 +3,16 @@ import axios from 'axios';
 
 const UserContext = createContext();
 
-function Provider({ children }) {
+function UProvider({ children }) {
     const [user, setUser] = useState(null);
 
     //user functions.
-    const fetchUser = async (uid, pwd) => {
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users?userid=${uid}&password=${pwd}`);
+    const fetchUser = async (userId, password) => {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users?userid=${userId}&password=${password}`);
 
-        if (response.data.length !== 1)
-            setUser(null);
-        else
+        if (response.data.length === 1) {
             setUser(response.data[0]);
+        }
     };
 
     const editUserById = async (userId, props) => {
@@ -55,5 +54,5 @@ function Provider({ children }) {
     </UserContext.Provider>
 }
 
-export { Provider };
+export { UProvider };
 export default UserContext;

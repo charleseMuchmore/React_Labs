@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const PostsContext = createContext();
 
-function Provider({ children }) {
+function PProvider({ children }) {
     const [featuredPosts, setFeaturedPosts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [posts, setPosts] = useState([]);
@@ -24,8 +24,8 @@ function Provider({ children }) {
 
     //posts functions
     const fetchPosts = async (userId) => {
+        console.log(`${process.env.REACT_APP_SERVER_URL}/posts?userId=${userId}&expand=user&sort=datetime&order=desc`);
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?userId=${userId}&expand=user&sort=datetime&order=desc`);
-
         setPosts(response.data);
     };
 
@@ -80,5 +80,5 @@ function Provider({ children }) {
     </PostsContext.Provider>
 }
 
-export { Provider };
+export { PProvider };
 export default PostsContext;

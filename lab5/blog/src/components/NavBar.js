@@ -8,7 +8,7 @@ function NavBar() {
     const [showLogin, setShowLogin] = useState(false);
 
     const handleClick = () => {
-        if (showLogin === false && user) {
+        if (showLogin === false && !user) {
             setShowLogin(true);
         } else if (showLogin === true) {
             setShowLogin(false);
@@ -24,12 +24,12 @@ function NavBar() {
     return (
     <div>
         <div href="../pages/Home.js" className="border">\O/</div>
-
-        {user && 
+        
+        {!user && 
         <button onClick={handleClick}>login</button>
         }
 
-        {user && user.id &&
+        {user && 
         <div className="border"> 
             <a href="#">add post</a>
             <a href="#">update profile</a>
