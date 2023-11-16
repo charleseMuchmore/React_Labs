@@ -12,6 +12,7 @@ function LoginForm({ onSubmit }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         let fetchedUser = await fetchUser(userid, password);
+        console.log(fetchedUser);
 
         if (fetchedUser === undefined || fetchedUser === null) {
             setError(true);

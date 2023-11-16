@@ -11,12 +11,13 @@ function PostsList() {
     let postsToRender = null;
     if (user) {
         postsToRender = posts;
+        console.log(posts);
     } else {
         postsToRender = featuredPosts;
     }
 
     const renderedPosts = postsToRender.map((post) => {
-        return <PostCard key={post.id} title={post.title} content={post.userId} />;
+        return <PostCard key={post.id} post={post} />;
     })
 
     return (
