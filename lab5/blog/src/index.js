@@ -16,7 +16,9 @@ const root = ReactDOM.createRoot(el);
 root.render(
 <UProvider>
     <PProvider>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </PProvider>
 </UProvider>
 );
