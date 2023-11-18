@@ -33,7 +33,7 @@ function App() {
                     (user) ? <EditPost /> : <Navigate replace to={'/'} />
                 } />
                 <Route path="posts/edit/:id" element={
-                    (user && location && location.state && user.id === location.state) ?
+                    (user && location && location.state && user.id === location.state.userId) ?
                     <EditPost /> : <Navigate replace to={'/'} />
                 } />
                 <Route path="*" element={<NoPage />} />

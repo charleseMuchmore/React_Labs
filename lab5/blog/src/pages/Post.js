@@ -1,11 +1,16 @@
 import { useLocation } from 'react-router-dom';
+import PostHeader from '../components/PostHeader';
+import parse from 'html-react-parser';
 
 function Post() {
     const location = useLocation();
+    console.log(location.state)
     return (
         <>
-        <h1>A post page</h1>
-        <h2>This is the id: {location.state.id}</h2>
+        <PostHeader post={location.state}/>
+        <div>
+        {parse(location.state.content)}
+        </div>
         </>
     )
 }

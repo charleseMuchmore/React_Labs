@@ -34,13 +34,13 @@ function PostCard({ post }) {
                 >Delete</button> && 
 
                 <Link 
-                state={post.userId} 
+                state={post} 
                 to={`posts/edit/${post.id}`}
                 >Edit</Link>}
 
                 
                 <Link 
-                state={{id: post.id}}  
+                state={post}  
                 to={`posts/${post.id}`}
                 >More</Link>
             </div>
