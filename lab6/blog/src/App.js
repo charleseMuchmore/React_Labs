@@ -2,7 +2,6 @@ import { useEffect, useContext } from 'react';
 import PostsContext from './context/posts';
 import UserContext from './context/user';
 import Home from './pages/Home';
-import NavBar from './components/NavBar';
 import {Routes, Route, Navigate, useLocation} from 'react-router-dom';
 import EditPost from './pages/EditPost';
 import NoPage from './pages/NoPage';
@@ -19,7 +18,7 @@ function App() {
     useEffect(() => {
         fetchFeaturedPosts();
         fetchCategories();
-    }, []); //this may just need to be an empty arry, not sure
+    }, [fetchFeaturedPosts, fetchCategories]); 
 
     return (
         <Routes>
@@ -40,12 +39,6 @@ function App() {
             </Route>             
         </Routes>
     )
-    // return (
-    // <div className="app">
-    //     <NavBar />
-    //     <Home />
-    // </div>
-    // )
 }
 
 export default App;

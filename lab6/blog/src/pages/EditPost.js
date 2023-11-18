@@ -9,8 +9,7 @@ function EditPost() {
         <h1>Add Post</h1>}
         {location.state !== null && 
         <h1>Edit Post</h1>}
-        </>
-    )
+        </>)
 }
 
 export default EditPost;

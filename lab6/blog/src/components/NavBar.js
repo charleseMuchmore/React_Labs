@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import UserContext from '../context/user';
 import LoginForm from '../components/LoginForm';
-import './NavBar.css';
 import {Link, NavLink, useLocation} from 'react-router-dom';
 
 function NavBar() {
@@ -23,12 +22,10 @@ function NavBar() {
         setShowLogin(false);
     }
 
-
-    //NOTE: location is coming up undefined for some reason here
     return (
     <div>
         <Link to="/">My Blogging App</Link>
-        { (location !== undefined && user && /^\/posts\/\d{1,}$/.test(location.pathname)) ?
+        { (user && /^\/posts\/\d{1,}$/.test(location.pathname)) ?
             <NavLink 
                 to={`/posts/edit/${location.state.id}`}
                 state={location.state}>
@@ -37,13 +34,11 @@ function NavBar() {
              :
             ""
         }
-        { (location !== undefined && user && /^\/$/.test(location.pathname)) ?
-            <NavLink
-                to="posts/new"
-            >
-                <h3>+</h3>
+        { (user && /^\/$/.test(location.pathname)) ?
+            <NavLink to="posts/new">
+            <h3>+</h3>
             </NavLink>
-                :
+                : 
             ""
         }
         { (user) ?

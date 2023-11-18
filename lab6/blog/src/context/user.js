@@ -22,9 +22,9 @@ function UProvider({ children }) {
             name: props.name, 
             userid: props.userid, 
             email: props.email,
-            // bio: props.bio, 
+            bio: props.bio, 
             password: props.password,
-            // image: props.image
+            image: props.image
         });
 
         setUser(response.data);

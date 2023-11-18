@@ -9,7 +9,6 @@ function PostCard({ post }) {
     const { deletePostById } = useContext(PostsContext);
     const { user } = useContext(UserContext);
     const location = useLocation();
-    // console.log(location);
 
     const handleDeleteClick = () => {
         deletePostById(post.id);
@@ -19,12 +18,13 @@ function PostCard({ post }) {
 
     return (
         <div className="card resize-card">
-            <img className="card-img-top" src={`data:image/png;base64,${post.image}`}></img>
+            <img className="card-img-top" src={`data:image/png;base64,${post.image}`} alt="card"></img>
             <div className="card-title">
                 {post.title} 
             </div>
             <div className="card-subtitle">
                 {post.category}
+                {date}
             </div>
             <div className="card-body">
                 {parse(post.content.substring(0, 100))}

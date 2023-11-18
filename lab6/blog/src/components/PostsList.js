@@ -3,12 +3,10 @@ import UserContext from '../context/user';
 import PostsContext from '../context/posts';
 import PostCard from './PostCard';
 import './PostsList.css';
-import { useLocation } from 'react-router-dom';
 
 function PostsList() {
     const { user } = useContext(UserContext);
     const { featuredPosts, posts } = useContext(PostsContext);
-    const location = useLocation();
 
     let postsToRender = null;
     if (user) {

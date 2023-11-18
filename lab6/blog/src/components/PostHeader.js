@@ -1,6 +1,4 @@
-
 function PostHeader( { post }) {
-    console.log(post);
     return (
     <>
         <div>
@@ -9,8 +7,7 @@ function PostHeader( { post }) {
             Category: {post.category} <br />
             Author: {post.userId}
         </div>
-    </>
-    )
+    </>)
 }
 
 export default PostHeader;
