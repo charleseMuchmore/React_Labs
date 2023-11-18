@@ -24,7 +24,6 @@ function PProvider({ children }) {
 
     //posts functions
     const fetchPosts = async (userId) => {
-        console.log(`${process.env.REACT_APP_SERVER_URL}/posts?userId=${userId}&expand=user&sort=datetime&order=desc`);
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?userId=${userId}&expand=user&sort=datetime&order=desc`);
         setPosts(response.data);
     };

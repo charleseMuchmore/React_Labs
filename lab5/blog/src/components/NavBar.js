@@ -2,10 +2,12 @@ import { useContext, useState } from 'react';
 import UserContext from '../context/user';
 import LoginForm from '../components/LoginForm';
 import './NavBar.css';
+import {Link, NavLink, useLocation} from 'react-router-dom';
 
 function NavBar() {
     const { user, resetUser } = useContext(UserContext);
     const [showLogin, setShowLogin] = useState(false);
+    const location = useLocation();
 
     const handleClick = () => {
         if (showLogin === false && !user) {
@@ -21,20 +23,46 @@ function NavBar() {
         setShowLogin(false);
     }
 
+
+    //NOTE: location is coming up undefined for some reason here
     return (
     <div>
-        <div href="../pages/Home.js" className="border">\O/</div>
+        <Link to="/">My Blogging App</Link>
+        { (location !== undefined && user && /^\/posts\/\d{1,}$/.test(location.pathname)) ?
+            <NavLink 
+                to={`/posts/edit/${location.state.id}`}
+                state={location.state}>
+                <h3>edit</h3>
+            </NavLink>
+             :
+            ""
+        }
+        { (location !== undefined && user && /^\/$/.test(location.pathname)) ?
+            <NavLink
+                to="posts/new"
+            >
+                <h3>+</h3>
+            </NavLink>
+                :
+            ""
+        }
+        { (user) ?
+            <NavLink 
+            className="nav-link me-2"
+            state={user} 
+            to="/user">
+                <div>\O/</div>
+            </NavLink>  
+                :
+            ""
+        }
         
         {!user && 
         <button onClick={handleClick}>login</button>
         }
 
         {user && 
-        <div className="border"> 
-            <a href="#">add post</a>
-            <a href="#">update profile</a>
-            <button onClick={handleClick}>logout</button>
-        </div>
+        <button onClick={handleClick}>logout</button>
         }
 
         {showLogin === true &&

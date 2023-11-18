@@ -8,9 +8,7 @@ function UProvider({ children }) {
 
     //user functions.
     const fetchUser = async (userId, password) => {
-        console.log(`${process.env.REACT_APP_SERVER_URL}/users?userid=${userId}&password=${password}`);
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users?userid=${userId}&password=${password}`);
-        console.log(response.data[0]);
         if (response.data.length === 1) {
             setUser(response.data[0]);
             return response.data[0];
