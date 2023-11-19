@@ -18,7 +18,7 @@ function App() {
     useEffect(() => {
         fetchFeaturedPosts();
         fetchCategories();
-    }, [fetchFeaturedPosts, fetchCategories]); 
+    }, []); 
 
     return (
         <Routes>

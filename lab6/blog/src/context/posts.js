@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useCallback } from 'react';
 import axios from 'axios';
 
 const PostsContext = createContext();
@@ -9,11 +9,11 @@ function PProvider({ children }) {
     const [posts, setPosts] = useState([]);
 
     //featuredPosts 
-    const fetchFeaturedPosts = async () => {
+    const fetchFeaturedPosts = useCallback(async () => {
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/posts?expand=user&sort=datetime&order=desc&start=0&end=12`);
 
         setFeaturedPosts(response.data);
-    };
+    }, []);
 
     //categories function
     const fetchCategories = async () => {

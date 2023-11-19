@@ -14,8 +14,6 @@ function PostCard({ post }) {
         deletePostById(post.id);
     };
 
-    let date = new Date(post.datetime);
-
     return (
         <div className="card resize-card">
             <img className="card-img-top" src={`data:image/png;base64,${post.image}`} alt="card"></img>
@@ -24,7 +22,6 @@ function PostCard({ post }) {
             </div>
             <div className="card-subtitle">
                 {post.category}
-                {date}
             </div>
             <div className="card-body">
                 {parse(post.content.substring(0, 100))}
