@@ -1,5 +1,8 @@
+import bookImage from '../images/booksimage.jpg'
+import './Header.css'
+
 function Header() {
-    return <><img src='../images/headerImage.jpg' alt="header" /> </>
+    return <div className="image-style"><img src={bookImage} alt="header" /></div> //<img src={bookImage} alt="header" />
 }
 
 export default Header;
