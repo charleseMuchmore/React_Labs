@@ -15,12 +15,6 @@ function Provider({ children }) {
 
 
     const editBookById = async (id, newTitle) => {
-        // const response = await axios.put(`http://localhost:3002/books/${id}`, {
-        //     title: newTitle
-        // });
-        // const response = await axios.put(`${process.env.PROD_DATA_URL}/${id}`, {
-        //     title: newTitle
-        // });
         const response = await axios.put(`http://citweb.lanecc.net:5031/books/${id}`, {
             title: newTitle
         });
@@ -50,12 +44,6 @@ function Provider({ children }) {
     };
 
     const createBook = async (title) => {
-        // const response = await axios.post('http://localhost:3002/books', {
-        //     title
-        // });
-        // const response = await axios.post(`${process.env.PROD_DATA_URL}`, {
-        //     title
-        // });
         const response = await axios.post(`http://citweb.lanecc.net:5031/books`, {
             title
         });
