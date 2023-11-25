@@ -1,4 +1,3 @@
-import bookImage from '../images/booksimage.jpg'
 import './Header.css'
 
 function Header() {

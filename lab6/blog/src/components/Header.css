@@ -1,4 +1,4 @@
 .image-style {
-    background-image: url('../images/booksimage.jpg');
+    background-image: url('./booksimage.jpg');
     background-repeat: repeat-x;
 }
