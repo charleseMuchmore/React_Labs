@@ -24,22 +24,14 @@ function PostCard({ post }) {
                 {post.category}
             </div>
             <div className="card-body">
-                {parse(post.content.substring(0, 100))}
-                { user && /^\/$/.test(location.pathname) &&
-                <button 
-                onClick={handleDeleteClick}
-                >Delete</button> && 
-
-                <Link 
-                state={post} 
-                to={`posts/edit/${post.id}`}
-                >Edit</Link>}
-
-                
-                <Link 
-                state={post}  
-                to={`posts/${post.id}`}
-                >More</Link>
+                <div>
+                    {parse(post.content.substring(0, 100))}
+                    {user && /^\/$/.test(location.pathname) && 
+                    <div><Link state={post} to={`posts/edit/${post.id}`}>Edit</Link>
+                    <button onClick={handleDeleteClick}>Delete</button></div>}
+                    
+                    <Link state={post} to={`posts/${post.id}`}>More</Link>
+                </div>
             </div>
         </div>
     )

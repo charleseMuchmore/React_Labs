@@ -1,6 +1,5 @@
-import { useContext } from 'react';
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import './EditUserProfile.css';
 import UserContext from '../context/user';
@@ -35,8 +34,7 @@ function EditUserProfile() {
         "data:image/png;base64,", "" );
         setImage(updatedImage);
     }
-            
-        
+               
     const {
         register,
         handleSubmit,
@@ -63,13 +61,12 @@ function EditUserProfile() {
                 <img src={image} alt="profile"></img>}
                 {!image &&
                 <img src={location.state.image} alt="profile"></img>}
-                
 
                 <div><input 
                 type="file" 
                 onChange={handleFileChange}
                 {...register("image", {
-                    required: false
+                    required: true
                 })}
                 />
                 </div>
