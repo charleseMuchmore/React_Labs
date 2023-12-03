@@ -67,7 +67,7 @@ function EditPost() {
       const onEditSubmit = (data) => {
         const newData = {
             "title": data.title,
-            "userId": user.id,
+            "userId": location.state.userId,
             "datetime": data.date,
             "category": data.category,
             "content": content,
